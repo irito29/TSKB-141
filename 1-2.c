@@ -30,7 +30,6 @@ double arithmeticMeanCubes(const double number1,const double number2);
  */
 double geometricMeanNumbers(const double number1,const double number2);
 
-double getDouble();
 /**
  * @brief Точка входа в программу
  * @return 0, если программа выполнена корректно, иначе не 0
