@@ -52,6 +52,7 @@ int main()
     double coefficient = getCoefficient();
     checkValue(coefficient);
     printf("потенциальная энергия пружины %lf", energy(length,coefficient));
+    return 0;
 }
 
 double getLength()
