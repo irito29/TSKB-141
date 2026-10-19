@@ -2,6 +2,14 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdbool.h>
+typedef enum
+{
+    SQUARE = 1,
+    SURFACEAREA = 2,
+    VOLUME = 3,
+    EXIT = 4
+    
+} UserChoice; 
 /**
  * @brief просит пользователя ввести сторону куба и проверяет верно ли она введена, если неправильно то выводит ошибку
  * @return сторону куба
@@ -45,19 +53,12 @@ int makeChoice();
  * @return считанное значение
 */
  int getInt();
-enum
-{
-    SQUARE = 1,
-    SURFACEAREA = 2,
-    VOLUME = 3,
-    EXIT = 4
-    
-};
+
 /**
  * @brief Точка входа в программу
  * @return 0, если программа выполнена корректно, иначе не 0
  */
- int main()
+int main()
 {
     int choice = 0;
     const double  side = getSide();
@@ -147,6 +148,6 @@ int makeChoice()
     printf("чтобы узнать площадь полной поверхности куба введите %d\n", SURFACEAREA);
     printf("чтобы узнать объём куба введите %d\n", VOLUME);
     printf("для выхода введите %d\n", EXIT);
-    int choice = getInt();
+    UserChoice choice = getInt();
     return(choice);
 }
