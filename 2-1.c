@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdbool.h>
 /**
  * @brief просит пользователя ввести сторону куба и проверяет верно ли она введена, если неправильно то выводит ошибку
  * @return сторону куба
@@ -48,24 +49,32 @@ int makeChoice();
  * @brief точка входа в программу
  * @return 0 если программа выполнена корректно
  */
+enum
+{
+    SQUARE = 1,
+    SURFACEAREA = 2,
+    VOLUME = 3,
+    EXIT = 4
+    
+};
 int main()
 {
     int choice = 0;
     const double  side = getSide();
-    while(1 ==1 )
+    while(true)
     {
         choice = makeChoice();
         switch(choice) {
-            case 1:
+            case SQUARE:
                 printf("площадь грани куба = %lf\n", findSquare(side));
                 break;
-            case 2:
+            case SURFACEAREA:
                 printf("площадь полной поверхности куба = %lf\n", findSurfaceArea(side));
                 break;
-            case 3:
+            case VOLUME:
                 printf("объёма куба = %lf\n", findVolume(side));
                 break;
-            case 4:
+            case EXIT:
                 printf("программа завершена.до свидания");
                 return 0;
             default:
@@ -75,7 +84,7 @@ int main()
         }
     }
     
-    return 0;
+    
 
     
 }
@@ -134,10 +143,10 @@ double findVolume(double side)
 
 int makeChoice()
 {
-    printf("чтобы узнать площадь грани куба введите 1\n");
-    printf("чтобы узнать площадь полной поверхности куба введите 2\n");
-    printf("чтобы узнать объём куба введите 3\n");
-    printf("для выхода введите 4\n");
+    printf("чтобы узнать площадь грани куба введите %d\n", SQUARE);
+    printf("чтобы узнать площадь полной поверхности куба введите %d\n", SURFACEAREA);
+    printf("чтобы узнать объём куба введите %d\n", VOLUME);
+    printf("для выхода введите %d\n", EXIT);
     int choice = getInt();
     return(choice);
 }
