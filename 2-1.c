@@ -57,7 +57,11 @@ enum
     EXIT = 4
     
 };
-int main()
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе не 0
+ */
+ int main()
 {
     int choice = 0;
     const double  side = getSide();
