@@ -20,7 +20,10 @@ double yType2 (const double a,const double x);
  * @return рассчитанное значение
  */
 double yType1 (const double a,const double x);
-
+/**
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе не 0
+ */
 int main()
 {   
     const double a = 0.3;
