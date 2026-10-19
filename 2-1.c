@@ -45,10 +45,6 @@ int makeChoice();
  * @return считанное значение
 */
  int getInt();
-/**
- * @brief точка входа в программу
- * @return 0 если программа выполнена корректно
- */
 enum
 {
     SQUARE = 1,
