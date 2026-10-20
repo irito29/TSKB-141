@@ -2,14 +2,17 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdbool.h>
+/**
+ * @brief Выбор метода заполнения массива
+ */
 typedef enum
 {
-    SQUARE = 1,
-    SURFACEAREA = 2,
-    VOLUME = 3,
-    EXIT = 4
-    
-} UserChoice; 
+    SQUARE = 1,       /**< вычисление площади грани куба */
+    SURFACEAREA = 2,  /**< вычисление площади полной поверхности куба */
+    VOLUME = 3,       /**< вычисление объёма куба */
+    EXIT = 4          /**< завершение работы программы */
+} UserChoice;
+
 /**
  * @brief просит пользователя ввести сторону куба и проверяет верно ли она введена, если неправильно то выводит ошибку
  * @return сторону куба
@@ -47,7 +50,7 @@ double findVolume(double side);
  * @brief просит пользователя выбрать действие
  * @return число, обозначающее выбор пользователя
  */
-int makeChoice();
+UserChoice makeChoice();
 /**
  * @brief считывает с клавиатуры значение типа int, выдаёт ошибку и выходит из программы если введено не целое число
  * @return считанное значение
@@ -60,7 +63,7 @@ int makeChoice();
  */
 int main()
 {
-    int choice = 0;
+    UserChoice choice = 0;
     const double  side = getSide();
     while(true)
     {
@@ -142,7 +145,7 @@ double findVolume(double side)
     return pow(side,3);
 }
 
-int makeChoice()
+UserChoice makeChoice()
 {
     printf("чтобы узнать площадь грани куба введите %d\n", SQUARE);
     printf("чтобы узнать площадь полной поверхности куба введите %d\n", SURFACEAREA);
