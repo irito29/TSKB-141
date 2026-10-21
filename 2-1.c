@@ -30,21 +30,21 @@ double getDouble();
  * @param side сторона куба
  * @return площадь грани куба
  */
-double findSquare(double side);
+double findSquare(const double side);
 
 /**
  * @brief вычисляет значение площади полной поверхности куба по заданным данным
  * @param side сторона куба
  * @return площадь полной поверхности куба
  */
-double findSurfaceArea(double side);
+double findSurfaceArea(const double side);
 
 /**
  * @brief вычисляет значение объёма куба по заданным данным
  * @param side сторона куба
  * @return объём куба
  */
-double findVolume(double side);
+double findVolume(const double side);
 
 /**
  * @brief просит пользователя выбрать действие
@@ -130,17 +130,17 @@ int getInt()
 }
 
 
-double findSquare(double side)
+double findSquare(const double side)
 {
     return pow(side,2);
 }
 
-double findSurfaceArea(double side)
+double findSurfaceArea(const double side)
 {
     return pow(side,2)*6;
 }
 
-double findVolume(double side)
+double findVolume(const double side)
 {
     return pow(side,3);
 }
