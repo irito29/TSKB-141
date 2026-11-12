@@ -83,7 +83,7 @@ int main()
                 return 0;
             default:
                 printf("ошибка. введите число от 1 до 4\n");
-                break;
+                exit(1);
         
         }
         return 0;
