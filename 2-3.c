@@ -29,7 +29,10 @@ double getSide();
  */
 double getDouble();
 
-
+/** 
+ * @brief Точка входа в программу
+ * @return 0, если программа выполнена корректно, иначе не 0
+ */
 int main()
 {
     const double side1 = getSide();
