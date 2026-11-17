@@ -10,6 +10,14 @@
 int checkTriangle(const double a, const double b, const double c);
 
 /**
+ * @brief возвращает максимум из двух чисел
+ * @param a первое число
+ * @param b второе число
+ * @return большее из a и b
+ */
+double max2(const double a, const double b);
+
+/**
  * @brief проверяет является ли треугольник остроугольным
  * @param a первая сторона
  * @param b вторая сторона
@@ -55,31 +63,35 @@ int checkTriangle(const double a,const double b, const double c )
         return 0;
     }
 }
-void checkSharp(const double a,const double b, const double c )
+void checkSharp(const double a, const double b, const double c)
 {
-    double max = 0.0;
+    double max = max2(max2(a, b), c);
     double notMax1 = 0.0;
     double notMax2 = 0.0;
-    if (a >= b && a >= c){
-        max = a;
+
+    if (max == a)
+    {
         notMax1 = b;
         notMax2 = c;
     }
-    if (b >= a && b >= c){
-        max = b;
+    else if (max == b)
+    {
         notMax1 = a;
         notMax2 = c;
     }
-     if (c >= b && c >= a){
-        max = c;
-        notMax1 = b;
-        notMax2 = a;
+    else
+    {
+        notMax1 = a;
+        notMax2 = b;
     }
-    if (max*max < notMax1 * notMax1 + notMax2 * notMax2){
-        printf("треугольник является остроугольным");
+
+    if (max * max < notMax1 * notMax1 + notMax2 * notMax2)
+    {
+        printf("треугольник является остроугольным\n");
     }
-    else{
-        printf("треугольник не является остроугольным");
+    else
+    {
+        printf("треугольник не является остроугольным\n");
     }
 }
 double getSide()
@@ -104,4 +116,15 @@ double getDouble()
     }
     return value;
     
+}
+
+double max2(const double a , const double b){
+    if (a >= b) 
+    {
+        return a;
+    } 
+    else 
+    {
+        return b;
+    }
 }
