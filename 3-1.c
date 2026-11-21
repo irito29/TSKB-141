@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <float.h>
 /**
  * @brief считывает с клавиатуры значение с плавающей точкой, выдаёт ошибку и выходит из программы если введено не число
  * @return считанное значение
@@ -13,6 +14,14 @@ double getDouble();
  */
 double y(const double x);
 /**
+ * @breif проверяет то что шаг больше 0, если не больше выводит ошибку, выходит из программы
+ */
+void checkStep(const double step);
+/**
+ * @breif проверяет то конец больше начала , если нет выводит ошибку, выходит из программы
+ */
+void compareStartAndEnd(const double start, const double end);
+ /**
  * @brief точка входа в программу
  * @return 0 если программа выполнена корректно, иначе не 0
  */
@@ -24,8 +33,10 @@ int main()
     double end = getDouble();
     printf("Введите шаг интервала (0.05):\n");
     double step = getDouble();
+    compareStartAndEnd(start,end);
+    checkStep(step);
     printf("x\t y\n");
-    for (double x = start; x <= end +1e-9; x += step)
+    for (double x = start; x <= end + DBL_EPSILON; x += step)
     
     {
         if (x< 0 ){
@@ -52,4 +63,18 @@ double getDouble()
     }
     return value;
     
+}
+void compareStartAndEnd(const double start, const double end)
+{
+    if (start > end){
+        printf("ошибка. начало интервала не долно быть больше конца");
+        exit(1);
+    }
+}
+void checkStep(const double step)
+{
+    if (step <= 0){
+        printf("ошибка. шаг должен быть больше 0");
+        exit(1);
+    }
 }
